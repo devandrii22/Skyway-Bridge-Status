@@ -1,8 +1,9 @@
-
 import random
 import logging
 import json
 import prompts
+
+import requests
 
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import (
@@ -31,9 +32,19 @@ class GetStatus(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         logger.info("In GetStatus")
         
-        
+        URL = "https://www.skywaybridgestatus.com"
+        resp = requests.get(url = URL)
+        data = resp.text
 
-        handler_input.response_builder.speak('pidr')
+        if resp.ok:
+            if (data.find('class="status--open"') != -1):
+                say = "Skyway Bridge is currently open."
+            elif (data.find('class="status--closed"')):
+                say = "Skyway Bridge is currently closed."
+        else:
+            say = "Sorry, can't get info at this moment, please check later."
+
+        handler_input.response_builder.speak(say)
         return handler_input.response_builder.response
 
 
