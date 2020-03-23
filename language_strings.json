@@ -1,0 +1,11 @@
+{
+	"en": {
+		"SKILL_NAME": "Skyway status",
+		"HELP_MESSAGE": "You can say skyway status updates ... or traffic info on skyway bridge",
+		"HELP_REPROMPT": "What can I help you with?",
+		"FALLBACK_MESSAGE": "Skyway skill can't help yout with that. It can get you undates on Skyway Bridge if you aks, updates",
+		"FALLBACK_REPROMPT": "What can I help you with?",
+		"ERROR_MESSAGE": "Sorry, an error occurred.",
+		"STOP_MESSAGE": "Goodbye!"
+	}
+}
